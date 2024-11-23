@@ -1,5 +1,4 @@
-# SEM
+# Jack's Fork Changelog of SEM
 
-## Upcoming updates
-- "Extra" hyper reference link
-- Improved GUI for every portfolio
+## V 1.0a:
+-
