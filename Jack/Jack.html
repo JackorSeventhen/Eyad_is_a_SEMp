@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Portfolio</title>
+    <link rel="shortcut icon" href="../Media/SEMpa.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --background: #0f0f0f;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --accent: #8c7ae6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            background: url('https://i.imgur.com/DBdFl7Z.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            background-blend-mode: darken;
+            backdrop-filter: blur(5px);
+        }
+
+        .Page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--accent);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .top ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .top_list a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .top_list a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .profile-image-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            margin-bottom: 0px;
+            margin-top: -40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 30px rgba(108, 92, 231, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .profile-image-container:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 40px rgba(108, 92, 231, 0.5);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .main_p_o_c {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--text-primary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 20px;
+            text-align: left;
+            background: rgba(108, 92, 231, 0.1);
+            border-radius: 10px;
+        }
+
+        th {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        tr:hover td {
+            background: rgba(108, 92, 231, 0.2);
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+
+        .contact, .discord-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 20px;
+            transition: all 0.3s ease;
+            filter: brightness(0.9);
+        }
+
+        .contact:hover, .discord-icon:hover {
+            transform: scale(1.2) rotate(360deg);
+            filter: brightness(1.2);
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        .version {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .top {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .top ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 15px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .Page > * {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading::after {
+            content: '';
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--primary-color);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: loading 1s linear infinite;
+        }
+
+        @keyframes loading {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+        <div class="Page">
+            <div class="top">
+                <div class="logo">
+                    <span class="S">S</span><span class="E">E</span><span class="M">M</span>
+                </div>
+                <ul>
+                    <li>
+                        <div class="top_list">
+                            <a href="../index.html">Home page</a>
+                        </div>                        
+                    </li>
+                    <li class="exist">
+                        <div class="top_list">
+                            <a href="#">Jack<i class="fas fa-caret-down"></i></a>
+                        </div>                        
+                    </li>
+                    <li>
+                        <div class="top_list">
+                            <a href="../Bryan/Bryan.html">Bryan</a>
+                        </div>                        
+                    </li>
+                    <li>
+                        <div class="top_list">
+                            <a href="#">Support</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+			<div class="profile-image-container">
+                <img src="https://i.imgur.com/KtxvJEN.jpeg" alt="Jack's Profile" class="profile-image">
+            </div>
+            <h1 class="main_p_o_c">Who is Jack?</h1>
+            <table>
+                <tr>
+                    <th>Real name</th>
+                    <th>Saladin Ayman Saad</th>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td>18 1/2</td>
+                </tr>
+                <tr>
+                    <td>Birthday</td>
+                    <td>2005/7/6</td>
+                </tr>
+                <tr>
+                    <td>Hobbies</td>
+                    <td>Casual coding, Song-Writing, Image Manipulation, Editing, Interested in Astronomy/Celestial Discoveries, Reverse-Engineering Computer Files, Retro/Vintage Computer Hardware/Software, Binge Watching YouTube.</td>
+                </tr>
+                <tr>
+                    <td>Introduction</td>
+					<td>
+                        An obnoxiously average individual - perhaps, even below average in many aspects, but overall an average Jack. Pessimistic, tearful, grieving, spiteful, unfortunate, sad, angry, anxious, stressed, cynic, melancholic, moody, gloomy, lonely. 
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Projects</td>
+                    <td>
+                        Voiced Songs:<br>
+                        Dark Lights, Because of You, YOU, Beginning Again, Hear Me.</br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Others: <br>
+                        Everglow System in SpaceEngine (V0.98 & 0.99)<br>
+						Hegemon: Everglow Universe
+                    </td>
+                </tr>
+                <tr>
+                    <td>Relationship</td>
+                    <td>Long-Distance Relationship with "Hannah Huidem"</td>
+                </tr>
+                <tr>
+                    <td>Number of current friends</td>
+                    <td>5 Close Friends (Bryan, Nash, David, Abdelrahman Jamal, Hannah) </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Works</td>
+                    <td>
+                        Poems:<br>
+                        <a href="../Collab/The-Battle-of-the-15th-of-May.html">CONNECTIONS (Album)<br>
+                        <a href="../Collab/The-Battle-of-the-15th-of-May.html">LOVE YOU TO DEATH (Album)<br>
+                        <a href="NIGHTMARISH-DREAM.html">PAINSAW (Album)</a><br>
+                        <a href="BECAUSE-OF-YOU.html">WHISPERS (Album)</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Stories: <br>
+                        A.W.A.Y. (Discontinued)<br>
+                        Nile City 2080 (Discontinued)<br>
+                        <a href="Everglow Exposition.pdf" target="_blank">Hegemon: Everglow (Exposition)</a><br>
+                        <a href="Everglow_ACT1.pdf" target="_blank">Hegemon: Everglow (Episode 1)</a><br>
+                        <a href="Everglow_ACT2.pdf" target="_blank">Hegemon: Everglow (Episode 2)</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Contact</td>
+                    <td>
+                        <a href="https://web.facebook.com/profile.php?id=100063587461818">
+                            <img src="../Media/Facebook_logo.png" class="contact" alt="facebook">
+                        </a>
+						<a href="https://discord.gg/Pb3JtNf2x9" target="_blank">
+                            <img src="../Media/Discord.png" alt="Discord" class="discord-icon">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br><br>
+        <div class="version"></div> 
+    </body>
+</html>
